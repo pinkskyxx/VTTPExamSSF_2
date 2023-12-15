@@ -24,7 +24,8 @@ FROM openjdk:21-bookworm
 WORKDIR /app
 
 # copy and rename to app.jar
-COPY --from=builder /app/target/eventList-0.0.1-SNAPSHOT.jar app.jar
+COPY --from=builder /app/target/eventmanagement-0.0.1-SNAPSHOT.jar app.jar
+
 
 ENV PORT=8080
 ENV SPRING_REDIS_HOST=localhost SPRING_REDIS_PORT=6379
