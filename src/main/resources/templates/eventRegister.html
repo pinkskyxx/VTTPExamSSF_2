@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Register Event</title>
+</head>
+<body>
+    <div class="container">
+
+        <br><br>
+        <h1>Register event</h1>
+        <h6>You have choose to register for the following event:</h6>
+        <span th:field="*{regeventName}" ></span>
+        <span th:field="*{formattedregeventDate}" ></span>
+        <hr>
+
+        <form method="POST" th:action="@{/register/customer}" th:object="${invEvent}">
+            <div class="mb-3">
+                <label for="Full name" class="form-label">Full Name</label>
+                <input type="text" class="form-control" name="fullName" th:field="*{fullName}" />
+            </div>
+            <div class="alert alert-danger" th:if="${#fields.hasErrors('fullName')}" th:errors="*{fullName}"></div>
+
+            <div class="mb-3">
+                <label for="dateOfBirth" class="form-label">DOB</label>
+                <input type="date" class="form-control" name="dateOfBirth" th:field="*{dateOfBirth}" />
+            </div>
+            <div class="alert alert-danger" th:if="${#fields.hasErrors('dateOfBirth')}" th:errors="*{dateOfBirth}"></div>
+
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" name="email" th:field="*{email}" />
+            </div>
+            <div class="alert alert-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+
+            <div class="mb-3">
+                <label for="phoneno" class="form-label">Mobile No</label>
+                <input type="text" class="form-control" name="phoneNo" th:field="*{phoneNo}" />
+            </div>
+            <div class="alert alert-danger" th:if="${#fields.hasErrors('phoneNo')}" th:errors="*{phoneNo}"></div>
+
+            <div class="mb-3">
+                <label for="gender" class="form-label">Gender</label>
+                <input type="text" class="form-control" name="gender" th:field="*{gender}" />
+            </div>
+            <div class="alert alert-danger" th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}"></div>
+
+            <div class="mb-3">
+                <label for="notick" class="form-label">Number of Tickets</label>
+                <input type="number" class="form-control" name="notick" th:field="*{notick}" />
+            </div>
+            <div class="alert alert-danger" th:if="${#fields.hasErrors('notick')}" th:errors="*{notick}"></div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+    </div>
+</body>
+</html>
